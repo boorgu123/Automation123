@@ -1,0 +1,16 @@
+---
+ - hosts: localhost
+   vars_files:
+     - vars.yml
+   tasks:
+     - ec2: 
+         key_name: launch_ec2 
+         instance_type: "{{ instance_type }}" 
+         image: ami-0cc96feef8c6bbff3
+         wait: yes 
+         #group: webserver 
+         count: 1
+         region: us-east-1 
+         vpc_subnet_id: subnet-0c773626 
+         assign_public_ip: yes
+
